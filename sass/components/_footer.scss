@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+footer {
+  padding-block: $offset-medium * 1.5;
+
+  & > .flex {
+    flex-direction: column;
+    align-items: center;
+    @include mq(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  .image-title {
+    height: 1.75rem;
+  }
+
+  a {
+    @include focus-outline(clr(neutral, 100), 0.5rem);
+  }
+}

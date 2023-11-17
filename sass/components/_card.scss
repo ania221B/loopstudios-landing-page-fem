@@ -1,0 +1,29 @@
+@use '../abstracts/' as *;
+
+.card {
+  grid-template-columns: 1fr;
+  background: linear-gradient(
+    to right,
+    rgba(clr(neutral, 900), 0.6),
+    rgba(clr(neutral, 900), 0.05)
+  );
+  color: clr(neutral, 100);
+  text-decoration: none;
+
+  & > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  picture {
+    z-index: -1;
+    grid-column: 1 / -1;
+    mix-blend-mode: darken;
+  }
+
+  h3 {
+    max-width: 12ch;
+    padding: $offset-base;
+    justify-self: start;
+    align-self: end;
+  }
+}

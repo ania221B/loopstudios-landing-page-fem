@@ -1,0 +1,16 @@
+@use '../abstracts/' as *;
+
+.skip-to-main-content {
+  position: absolute;
+  inset: 0 auto auto 50%;
+  z-index: 10;
+  padding: 0.5em 1.5em;
+  color: white;
+  transform: translate(-50%, -100%);
+  transition: transform 350ms ease-in-out;
+
+  &:focus-visible {
+    transform: translate(-50%, 0);
+    @include focus-outline(clr(neutral, 100));
+  }
+}

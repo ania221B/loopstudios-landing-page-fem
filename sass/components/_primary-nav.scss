@@ -1,0 +1,143 @@
+@use '../abstracts/' as *;
+
+.primary-nav {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  @include underlined-elements();
+
+  li:where(:not(:first-child)) {
+    margin: 0 0 0 2rem;
+  }
+
+  a {
+    color: clr(neutral, 100);
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    outline: none;
+    outline: 0.125rem solid clr(neutral, 900);
+  }
+
+  @media (max-width: 40em) {
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    padding-block: clamp(7rem, 30vh + 1rem, 35vh);
+    padding-inline: $offset-base;
+
+    @include underlined-elements(
+      $size: 50%,
+      $scale-X-start: scaleX(0),
+      $translateX: 0,
+      $origin: left
+    );
+
+    &[data-state='closed'] {
+      display: none;
+    }
+
+    &[data-state='is-closing'] {
+      animation-name: closeMenu;
+      animation-duration: 750ms;
+      animation-delay: 1000ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    &[data-state='opened'] {
+      display: block;
+      animation-name: openMenu;
+      animation-duration: 750ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    li {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    li:where(:not(:first-child)) {
+      margin: 1.5em 0 0 0;
+    }
+
+    &[data-items='is-hidden'] li {
+      animation-name: slideOut;
+      animation-duration: 450ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+    }
+
+    &[data-items='visible'] li {
+      display: block;
+      animation-name: slideIn;
+      animation-duration: 450ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    @for $index from 1 through 5 {
+      &[data-items='visible']li:nth-child(#{$index}),
+      &[data-items='is-hidden']li:nth-child(#{$index}) {
+        animation-delay: 250ms * $index;
+      }
+    }
+
+    a {
+      font-family: $ff-secondary;
+      font-size: fs(700);
+      font-weight: $fw-300;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@keyframes openMenu {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes closeMenu {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+
+.gallery__list {
+  --flow-space: #{$offset-base};
+  padding: 0;
+
+  & > *:where(:not(:first-child)) {
+    margin: $offset-base 0 0 0;
+  }
+  @include mq(medium) {
+    & > *:where(:not(:first-child)) {
+      margin: 0;
+    }
+  }
+}

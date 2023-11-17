@@ -1,0 +1,26 @@
+@use '../abstracts/' as *;
+
+.secondary-nav {
+  padding: 0;
+  margin: $offset-base * 1.5 0 0 0;
+  flex-direction: column;
+  align-items: center;
+  @include underlined-elements();
+
+  li:where(:not(:first-child)) {
+    margin: 0.5rem 0 0 0;
+  }
+  a {
+    color: clr(neutral, 100);
+    text-decoration: none;
+  }
+
+  @include mq(medium) {
+    margin: $offset-base 0 0 0;
+    flex-direction: row;
+
+    li:where(:not(:first-child)) {
+      margin: 0 0 0 1rem;
+    }
+  }
+}

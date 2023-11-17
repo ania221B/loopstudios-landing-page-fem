@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  @include focus-outline(clr(neutral, 100));
+}
+
+.link-btn {
+  display: inline-block;
+  text-decoration: none;
+
+  &[data-type='primary'] {
+    padding: 0.35rem 1.75rem;
+    border: 0.125rem solid clr(neutral, 300);
+    letter-spacing: 0.25rem;
+    color: clr(neutral, 900);
+    @include bg-change(
+      $clr: clr(neutral, 100),
+      $bg: clr(neutral, 900),
+      $inset: -0.125rem
+    );
+  }
+}
+
+.navigation-menu-btn {
+  display: none;
+
+  @media (max-width: 40em) {
+    --btn-clr: white;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    inset: 2rem $offset-base auto auto;
+
+    width: 2.85rem;
+    aspect-ratio: 1;
+    background-color: transparent;
+
+    z-index: 1;
+  }
+
+  .line {
+    transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
+  }
+
+  &[aria-expanded='true'] .line-top {
+    transform: rotate(45deg) translate(1.5rem, -2rem);
+  }
+
+  &[aria-expanded='true'] .line-middle {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  &[aria-expanded='true'] .line-bottom {
+    transform: rotate(-45deg) translate(-3.25rem, 0rem);
+  }
+}

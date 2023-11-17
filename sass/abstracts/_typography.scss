@@ -1,0 +1,15 @@
+$ff-primary: 'Alata', sans-serif;
+$ff-secondary: 'Josefin Sans', sans-serif;
+
+$font-sizes: (
+  900: clamp(2.5rem, 4vw + 1rem, 4.75rem),
+  800: clamp(1.9rem, 2vw + 1rem, 2.5rem),
+  700: 2rem,
+  600: 1.75rem,
+  500: 1.3125rem,
+  400: 0.9375rem,
+);
+
+$fw-300: 300;
+$fw-400: 400;
+$fw-700: 700;

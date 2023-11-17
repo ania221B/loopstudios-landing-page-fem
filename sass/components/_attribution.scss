@@ -1,0 +1,33 @@
+@use '../abstracts/' as *;
+
+.attribution {
+  padding-block-end: $offset-base;
+  font-size: 11px;
+  text-align: center;
+
+  & a {
+    display: inline-block;
+    position: relative;
+    color: clr(neutral, 100);
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: auto auto -0.25rem 0;
+      background-color: clr(neutral, 100);
+      width: 50%;
+      height: 0.125rem;
+      transform: translateX(0) scaleX(1.5);
+      transform-origin: center;
+      opacity: 0;
+      transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateX(50%) scaleX(1);
+      transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
+    }
+  }
+}

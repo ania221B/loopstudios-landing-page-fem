@@ -1,0 +1,94 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:math';
+@use 'breakpoints' as *;
+@use 'functions' as *;
+
+@mixin mq($size) {
+  @if (map.has-key($breakpoints, $size)) {
+    $breakpoint: map.get($breakpoints, $size);
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else if (meta.type-of($size) == number) {
+    @if (math.is-unitless($size)) {
+      @error 'The value #{$size} you provided has no unit';
+    } @else {
+      $breakpoint: $size;
+      @media screen and (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'The value #{$size} is not a key in the map. Use a key from the map or a numeric value with a unit';
+  }
+}
+
+@mixin focus-outline($clr, $offset: 0.25rem) {
+  &:focus-visible {
+    outline: none;
+    outline: 0.125rem solid $clr;
+    outline-offset: $offset;
+  }
+}
+
+@mixin underlined-elements(
+  $inset: auto auto -0.75rem 0,
+  $size: 50%,
+  $scale-X-start: scaleX(1.5),
+  $origin: center,
+  $translateX: 50%
+) {
+  & > * {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: $inset;
+      background-color: clr(neutral, 100);
+      width: $size;
+      height: 0.125rem;
+      transform: translateX(0) $scale-X-start;
+      transform-origin: $origin;
+      opacity: 0;
+      transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      opacity: 1;
+      transform: translateX($translateX) scaleX(1);
+      transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
+    }
+  }
+  a {
+    @include focus-outline(clr(neutral, 100));
+  }
+}
+
+@mixin bg-change($clr, $bg, $inset: 0) {
+  position: relative;
+  isolation: isolate;
+  @include focus-outline(clr(neutral, 900));
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: $inset;
+    background: $bg;
+    display: block;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    color: $clr;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}

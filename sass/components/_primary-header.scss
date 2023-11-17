@@ -1,0 +1,59 @@
+@use '../abstracts/' as *;
+
+.primary-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  padding-block: $offset-medium;
+  z-index: 1;
+  isolation: isolate;
+
+  & > .flex {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+    background-color: black;
+  }
+
+  &[data-menu='opened']::after {
+    animation-name: showBackground;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+  }
+  &[data-menu='is-closing']::after {
+    animation-name: hideBackground;
+    animation-duration: 350ms;
+  }
+
+  a {
+    @include focus-outline(clr(neutral, 100), 0.5rem);
+  }
+}
+
+@keyframes showBackground {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideBackground {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

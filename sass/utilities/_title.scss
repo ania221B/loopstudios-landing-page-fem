@@ -1,0 +1,7 @@
+@use '../abstracts/' as *;
+
+.title {
+  font-family: $ff-secondary;
+  font-weight: $fw-300;
+  text-transform: uppercase;
+}

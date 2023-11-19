@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 
-.card {
+.image-card {
   grid-template-columns: 1fr;
   background: linear-gradient(
     to right,
@@ -25,5 +25,26 @@
     padding: $offset-base;
     justify-self: start;
     align-self: end;
+  }
+}
+
+.text-card {
+  padding-block: $offset-base * 1.5;
+  padding-inline: $offset-base * 0.5;
+  text-align: center;
+  background-color: clr(neutral, 100);
+
+  @include mq(45em) {
+    padding-block: clamp(
+      $offset-base,
+      $offset-medium * 2.5,
+      $offset-medium * 5
+    );
+    padding-inline: clamp(
+      $offset-medium,
+      $offset-medium * 1.5,
+      $offset-medium * 3
+    );
+    text-align: left;
   }
 }

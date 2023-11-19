@@ -24,6 +24,22 @@
   }
 }
 
+@mixin pseudo($type: 'before', $position: absolute, $content: '') {
+  @if $type == 'before' {
+    &::before {
+      content: $content;
+      position: $position;
+      @content;
+    }
+  } @else {
+    &::after {
+      content: $content;
+      position: $position;
+      @content;
+    }
+  }
+}
+
 @mixin focus-outline($clr, $offset: 0.25rem) {
   &:focus-visible {
     outline: none;
@@ -42,9 +58,7 @@
   & > * {
     position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
+    @include pseudo {
       inset: $inset;
       background-color: clr(neutral, 100);
       width: $size;
@@ -55,8 +69,8 @@
       transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
     }
 
-    &:hover::after,
-    &:focus::after {
+    &:hover::before,
+    &:focus::before {
       opacity: 1;
       transform: translateX($translateX) scaleX(1);
       transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
@@ -72,9 +86,7 @@
   isolation: isolate;
   @include focus-outline(clr(neutral, 900));
 
-  &::after {
-    content: '';
-    position: absolute;
+  @include pseudo(after) {
     inset: $inset;
     background: $bg;
     display: block;

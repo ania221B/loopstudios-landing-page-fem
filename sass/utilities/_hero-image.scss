@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.hero-image {
+  background-image: url('../assets/mobile/image-hero.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include mq(medium) {
+    background-image: linear-gradient(
+        to right,
+        rgba(clr(neutral, 900), 0.6),
+        rgba(clr(neutral, 900), 0.05)
+      ),
+      url(../assets/desktop/image-hero.jpg);
+
+    background-blend-mode: darken;
+  }
+}

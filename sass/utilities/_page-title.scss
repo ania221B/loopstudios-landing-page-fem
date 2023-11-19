@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+
+.page-title {
+  border: 0.125rem solid clr(neutral, 100);
+  padding: 1.5rem $offset-base;
+
+  @include mq(medium) {
+    max-width: 15ch;
+    justify-self: start;
+  }
+}

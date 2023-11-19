@@ -1,0 +1,39 @@
+@use '../abstracts/' as *;
+
+.two-column-grid {
+  --grid-gap: 0;
+  grid-template-columns: 1fr;
+  padding-block-end: $offset-base * 4;
+
+  & > * {
+    grid-column: 1;
+  }
+
+  & > a {
+    margin-top: 1rem;
+    justify-self: center;
+  }
+
+  @include mq(medium) {
+    grid-template-columns: repeat(2, 1fr);
+
+    h2 {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: start;
+      align-self: center;
+    }
+
+    & > a {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+      align-self: center;
+    }
+
+    ul {
+      grid-column: 1 / -1;
+      justify-content: center;
+    }
+  }
+}

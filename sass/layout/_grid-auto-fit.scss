@@ -1,10 +1,12 @@
 @use '../abstracts/' as *;
 
 .grid-auto-fit {
+  --grid-gap: #{$offset-base};
   display: grid;
-  grid-gap: var(--grid-gap, $grid-gap);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min($card-base-width, 100%), 1fr)
-  );
+  gap: var(--grid-gap, $grid-gap);
+  grid-template-columns: 1fr;
+
+  @include mq(medium) {
+    grid-template-columns: repeat(auto-fit, $card-base-width);
+  }
 }

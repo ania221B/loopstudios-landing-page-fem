@@ -24,12 +24,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile view](./src/assets/screenshots/FrontendMentor-LoopstudiosLandingPageMobile.png)
-![Desktop view](./src/assets/screenshots/FrontendMentor-LoopstudiosLandingPageDesktop.png)
+![Mobile view](./assets/screenshots/FrontendMentor-LoopstudiosLandingPageMobile.png)
+![Desktop view](./assets/screenshots/FrontendMentor-LoopstudiosLandingPageDesktop.png)
 
 ### Links
 
-- Solution URL: [GitHub](https://github.com/ania221B/loopstudios-landing-page)
+- Solution URL: [GitHub](https://github.com/ania221B/loopstudios-landing-page-fem)
 
 ## My process
 
@@ -51,3 +51,8 @@ Users should be able to:
 ## Author
 
 - Frontend Mentor - [@ania221b](https://www.frontendmentor.io/profile/ania221b)
+
+## Acknowledgements
+
+- This template was build as part of [Beyond CSS](https://www.beyondcss.dev/) course by [Kevin Powell](https://www.kevinpowell.co/)
+- You can find Kevin's template on [his GitHub](https://github.com/kevin-powell)

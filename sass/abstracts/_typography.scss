@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'primary';
+  font-weight: 400;
+  src: url('../../assets/fonts/alata-regular-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/alata-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'secondary';
+  font-weight: 300;
+  src: url('../../assets/fonts/josefinsans-light-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/josefinsans-light-webfont.woff') format('woff');
+}
+
 $ff-primary: 'Alata', sans-serif;
 $ff-secondary: 'Josefin Sans', sans-serif;
 

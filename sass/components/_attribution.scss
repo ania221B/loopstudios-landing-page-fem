@@ -29,5 +29,11 @@
       transform: translateX(50%) scaleX(1);
       transition: opacity 300ms ease-in-out, transform 350ms ease-in-out 100ms;
     }
+
+    &:focus-visible {
+      outline: none;
+      outline: 0.125rem solid clr(neutral, 100);
+      outline-offset: 2px;
+    }
   }
 }

@@ -15,6 +15,11 @@
     text-decoration: none;
   }
 
+  a:focus-visible {
+    outline: none;
+    outline: 0.125rem solid clr(neutral, 100);
+  }
+
   @include mq(medium) {
     margin: $offset-base 0 0 0;
     flex-direction: row;

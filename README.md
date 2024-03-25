@@ -49,6 +49,11 @@ Users should be able to:
 - svg
 - animations / transitions
 
+### Useful resources
+
+- [Deploying Vite App to GitHub Pages](https://dev.to/shashannkbawa/deploying-vite-app-to-github-pages-3ane) - This helped me to deploy my project to GitHub Pages.
+- [Self-hosting fonts explained](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DzK-yy6C2Nck&ved=2ahUKEwj48LKfupCFAxUKQPEDHcXZAFEQtwJ6BAgREAI&usg=AOvVaw26WXXt3BpJXCNn8qoZhDRj) - This video helped me to learn how to self-host fonts to make them GDPR compliant.
+
 ## Author
 
 - Frontend Mentor - [@ania221b](https://www.frontendmentor.io/profile/ania221b)
